@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  
+  p Tiny FileDiff for modern ages
+  div(class='row')
+    div(class='col-sm-4')
+        h3 Sources
+        div(class='well')
+            form(action="/uploads/", method="post", enctype="multipart/form-data")
+                button(type='button', class='btn btn-default') 
+                    i(class='glyphicon glyphicon-plus') Add
+                button(type='submit', class='btn btn-primary') 
+                    i(class='glyphicon glyphicon-launch') Compare!
+
+                input(type='file', name='sources')
+                input(type='file', name='sources')
+    div(class='col-sm-8')
+        h3 Result
+        ul
+            each line in result
+                li
+                    span= line.line + ' ' + line.symbol + ' ' + line.desc 
+                    
+                    
+            
