@@ -9,19 +9,24 @@ block content
         h3 Sources
         div(class='well')
             form(action="/uploads/", method="post", enctype="multipart/form-data")
-                button(type='button', class='btn btn-default') 
-                    i(class='glyphicon glyphicon-plus') Add
-                button(type='submit', class='btn btn-primary') 
-                    i(class='glyphicon glyphicon-launch') Compare!
+                div(class='form-group')
+                    label source 1
+                    input(type='file', name='sources')
+                div(class='form-group')
+                    label source 2
+                    input(type='file', name='sources')
+                div(class='form-group')            
+                    button(type='submit', class='btn btn-primary btn-lg') Compare!
+                        
 
-                input(type='file', name='sources')
-                input(type='file', name='sources')
     div(class='col-sm-8')
         h3 Result
-        ul
+        table(class='table table-condensed')
             each line in result
-                li
-                    span= line.line + ' ' + line.symbol + ' ' + line.desc 
+                tr
+                    td= line.line
+                    td= line.symbol
+                    td= line.desc 
                     
                     
             
